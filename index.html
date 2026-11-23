@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160b18">
+<title>For My Forever Love ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+:root{--night:#160b18;--wine:#4b102c;--rose:#f4a9bc;--pink:#ffd9e3;--gold:#e8bd83;--cream:#fff4ec;--muted:#d9bdc8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#48172f 0%,#21101f 42%,#100914 100%);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body.locked{overflow:hidden}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+#intro{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 42%,#62213e,#1a0b1b 58%,#0d0710);transition:opacity 1s,visibility 1s}
+#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-inner{max-width:680px;animation:rise 1.2s both}
+.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.68rem;color:var(--gold)}
+.intro-heart{font-size:clamp(5rem,16vw,9rem);display:block;margin:20px 0;filter:drop-shadow(0 0 24px #ff729f);animation:heartbeat 1.5s infinite}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}
+#intro h1{font-size:clamp(2.5rem,7vw,5.2rem);line-height:.95;margin:12px 0 18px}
+#intro p{color:#e8cbd5;line-height:1.8}
+.btn{border:1px solid rgba(255,220,230,.4);border-radius:999px;padding:14px 25px;color:#2b1020;background:linear-gradient(135deg,#ffe2e8,#e8bd83);font-weight:700;box-shadow:0 8px 30px #ff8eae35;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 35px #ff8eae65}
+.btn.ghost{background:#ffffff0c;color:var(--pink);border-color:#f4a9bc70;box-shadow:none}
+nav{position:absolute;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:24px clamp(18px,5vw,70px)}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--pink)}
+nav a{color:#f5dbe3;text-decoration:none;font-size:.78rem;margin-left:20px;opacity:.8}
+nav a:hover{opacity:1;color:var(--gold)}
+.hero{min-height:100svh;position:relative;display:grid;place-items:center;text-align:center;padding:130px 20px 90px;overflow:hidden}
+.hero:before{content:"";position:absolute;width:min(80vw,760px);aspect-ratio:1;border:1px solid #f7c8d51c;border-radius:50%;box-shadow:0 0 100px #e64d8730,inset 0 0 100px #e64d8710}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero h1{font-size:clamp(3.8rem,10vw,8.5rem);line-height:.82;margin:28px 0;color:#ffe8e9;text-shadow:0 0 45px #f16c9b60}
+.hero h1 span{display:block;color:var(--gold);font-style:italic;font-weight:500}
+.hero-sub{max-width:600px;margin:28px auto;color:#e7cbd5;line-height:1.9}
+.hero-date{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.scroll-note{margin-top:52px;font-size:.68rem;letter-spacing:.2em;color:#d7aeba}
+section{padding:100px 22px;position:relative}
+.section-wrap{width:min(1100px,100%);margin:auto}
+.section-kicker{text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;color:var(--gold);text-align:center}
+.section-title{text-align:center;font-size:clamp(2.7rem,6vw,4.8rem);line-height:.95;margin:14px 0 18px}
+.section-lead{text-align:center;color:#d9bdc8;max-width:620px;line-height:1.8;margin:0 auto 45px}
+.glass{background:linear-gradient(135deg,#ffffff12,#ffffff05);border:1px solid #f6cbd52a;backdrop-filter:blur(16px);box-shadow:0 20px 70px #08040c55}
+.cake-card{border-radius:28px;padding:35px 20px;text-align:center;max-width:720px;margin:auto;overflow:hidden}
+.cake-scene{height:310px;display:grid;place-items:center;position:relative}
+.cake{position:relative;width:220px;height:155px;margin-top:70px;filter:drop-shadow(0 18px 18px #0008);transform-style:preserve-3d}
+.cake-top{position:absolute;top:0;left:0;width:220px;height:58px;border-radius:50%;background:linear-gradient(135deg,#ffe0e3,#f39ab3);border:3px solid #ffdce4;z-index:3}
+.cake-side{position:absolute;top:28px;left:0;width:220px;height:105px;border-radius:0 0 18px 18px;background:linear-gradient(90deg,#9d3159,#e77c9f 45%,#a93661);border-bottom:9px solid #762342}
+.cake-side:after{content:"";position:absolute;top:0;left:0;right:0;height:20px;background:radial-gradient(ellipse at 10% 0%,#fff0 40%,#ffe1e8 42%);opacity:.9}
+.cake-plate{position:absolute;bottom:0;width:280px;height:22px;border-radius:50%;background:linear-gradient(#f6d9dd,#ad788c);box-shadow:0 8px 15px #0007}
+.candle{position:absolute;z-index:5;bottom:118px;width:9px;height:52px;border-radius:4px;background:repeating-linear-gradient(45deg,#fff1d8 0 6px,#d95d83 6px 12px)}
+.candle:nth-child(1){left:76px}.candle:nth-child(2){left:105px;height:62px}.candle:nth-child(3){left:135px}
+.flame{position:absolute;left:1px;top:-19px;width:8px;height:16px;border-radius:50% 50% 45% 45%;background:radial-gradient(ellipse at 50% 70%,#fff9b4 0 20%,#ffb13d 45%,#ff5b22 75%);filter:drop-shadow(0 0 9px #ffb13d);animation:flicker .18s infinite alternate;transform-origin:50% 100%}
+.candle.out .flame{display:none}
+.cake-note{color:#d9bdc8;line-height:1.7}
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gift{min-height:205px;border-radius:22px;padding:25px 18px;text-align:center;color:var(--cream);background:linear-gradient(145deg,#ffffff12,#ffffff05);border:1px solid #f6cbd52b;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
+.gift:hover{transform:translateY(-7px) rotate(-1deg);border-color:#f4a9bc99}
+.gift-icon{font-size:3.2rem;display:block;margin:5px 0 12px;filter:drop-shadow(0 6px 12px #f36a9c40)}
+.gift h3{font-size:1.65rem;margin:8px 0}.gift p{font-size:.82rem;color:#d9bdc8;line-height:1.6;margin:0}
+.gift:after{content:"";position:absolute;inset:-60% -80%;background:linear-gradient(110deg,transparent 40%,#fff2 50%,transparent 60%);transform:translateX(-60%);transition:transform .7s}
+.gift:hover:after{transform:translateX(60%)}
+.letter-card{max-width:800px;margin:auto;padding:clamp(25px,5vw,55px);border-radius:25px;position:relative}
+.letter-card:before{content:"";position:absolute;inset:12px;border:1px solid #e8bd8340;border-radius:17px;pointer-events:none}
+.letter-top{text-align:center;color:var(--gold);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+#typedLetter{font-family:'Cormorant Garamond',serif;font-size:clamp(1.25rem,2.4vw,1.65rem);line-height:1.65;white-space:pre-line;color:#ffedf0;min-height:280px;margin:25px auto;max-width:650px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.photo{border-radius:20px;padding:10px;background:#fff1;transform:rotate(var(--r));transition:transform .35s}
+.photo:hover{transform:rotate(0) scale(1.04);z-index:2}
+.photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:13px;background:linear-gradient(135deg,#6c2946,#e9a6b8)}
+.photo figcaption{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.25rem;padding:12px 4px 5px;color:#ffe5e9}
+.love-tools{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tool-card{border-radius:22px;padding:28px;text-align:center}
+.tool-card h3{font-size:1.8rem;margin:5px 0 10px}.tool-card p{color:#d9bdc8;line-height:1.7;min-height:50px}
+.big-heart{font-size:4rem;display:block;cursor:pointer;transition:transform .2s;user-select:none;filter:drop-shadow(0 0 18px #f16c9b70)}
+.big-heart:active{transform:scale(1.35)}
+#reasonText{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#ffe4e9;min-height:60px}
+.rose-garden{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;font-size:3.5rem;padding:25px 0}
+.rose-garden span{display:inline-block;animation:sway 2.5s ease-in-out infinite;transform-origin:bottom}
+.rose-garden span:nth-child(even){animation-delay:-1.2s}
+.final{min-height:75vh;display:grid;place-items:center;text-align:center;overflow:hidden;background:radial-gradient(ellipse at center,#4d1735 0%,#1a0b1b 65%,#100914 100%)}
+.final h2{font-size:clamp(3.4rem,9vw,7rem);line-height:.9;margin:20px 0;color:#ffe4e9;text-shadow:0 0 35px #ff5d9b80}
+.final p{max-width:650px;line-height:1.9;color:#e7cbd5;margin:20px auto 30px}
+footer{text-align:center;padding:28px;color:#a98796;font-size:.72rem;letter-spacing:.12em}
+.modal{position:fixed;inset:0;z-index:500;display:none;place-items:center;padding:20px;background:#09050bd9;backdrop-filter:blur(12px)}
+.modal.show{display:grid;animation:fade .3s}
+.modal-box{width:min(560px,100%);max-height:85vh;overflow:auto;border-radius:25px;padding:38px 30px;text-align:center;position:relative}
+.modal-box h2{font-size:2.6rem;margin:8px 0 15px;color:var(--pink)}
+.modal-box p{line-height:1.85;color:#f2dce4;white-space:pre-line}
+.close{position:absolute;right:17px;top:14px;border:0;background:none;color:#f7dce5;font-size:1.7rem}
+#effects{position:fixed;inset:0;pointer-events:none;z-index:100}
+.particle{position:fixed;bottom:-30px;pointer-events:none;animation:floatUp linear forwards;opacity:0}
+.spark{position:fixed;width:4px;height:4px;border-radius:50%;background:#ffe5a6;box-shadow:0 0 12px #ffcf75;animation:twinkle 2s infinite}
+.firework{position:fixed;width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px currentColor;animation:burst 1s ease-out forwards}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
+@keyframes flicker{from{transform:rotate(-5deg) scaleY(1)}to{transform:rotate(5deg) scaleY(1.15)}}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.4)}}
+@keyframes burst{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(.1);opacity:0}}
+@keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@media(max-width:760px){nav{padding:18px;justify-content:center}nav .nav-links{display:none}.gifts{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)}.love-tools{grid-template-columns:1fr}.hero{padding-top:100px}.cake-scene{transform:scale(.9)}}
+@media(max-width:430px){.gifts{grid-template-columns:1fr 1fr;gap:10px}.gift{padding:20px 10px;min-height:180px}.gift-icon{font-size:2.5rem}.gallery{gap:10px}.photo{padding:7px}.photo figcaption{font-size:1.05rem}.section-title{font-size:2.8rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body class="locked">
+<div id="intro">
+  <div class="intro-inner">
+    <div class="eyebrow">A little universe, made just for you</div>
+    <span class="intro-heart">♥</span>
+    <h1>Someone special<br>has a birthday today...</h1>
+    <p>And someone who loves her more than words can say has a surprise waiting. ✨</p>
+    <button class="btn" id="openSurprise">Open Your Surprise ❤️</button>
+  </div>
+</div>
+<div id="effects"></div>
+<nav><div class="brand">♡ Forever & Always</div><div class="nav-links"><a href="#birthday">Birthday</a><a href="#gifts">Your gifts</a><a href="#letter">My letter</a><a href="#memories">Memories</a></div></nav>
+
+<header class="hero" id="birthday">
+  <div class="hero-content">
+    <div class="hero-date">Today is all about you ✦</div>
+    <h1>HAPPY BIRTHDAY <span>MY LOVE ❤️</span></h1>
+    <p class="hero-sub">To the prettiest soul in my universe: may your day sparkle as brightly as your smile, and may life give you every beautiful thing your heart dreams of.</p>
+    <a class="btn" href="#gifts" style="display:inline-block;text-decoration:none">Explore your surprises ✨</a>
+    <div class="scroll-note">SCROLL DOWN FOR YOUR MAGIC ↓</div>
+  </div>
+</header>
+
+<section>
+ <div class="section-wrap">
+  <div class="section-kicker">Make a wish, beautiful</div>
+  <h2 class="section-title">A cake made with love 🎂</h2>
+  <p class="section-lead">Three little candles for a thousand wishes. Close your eyes, make your sweetest wish, and tap to blow them out.</p>
+  <div class="cake-card glass">
+   <div class="cake-scene">
+    <div class="cake">
+     <div class="cake-top"></div><div class="cake-side"></div>
+     <div class="candle"><i class="flame"></i></div><div class="candle"><i class="flame"></i></div><div class="candle"><i class="flame"></i></div>
+     <div class="cake-plate"></div>
+    </div>
+   </div>
+   <p class="cake-note" id="cakeMessage">Your wish deserves to come true. ✨</p>
+   <button class="btn" id="blowCandles">Blow out the candles 🕯️</button>
+  </div>
+ </div>
+</section>
+
+<section id="gifts">
+ <div class="section-wrap">
+  <div class="section-kicker">A little something for my favourite person</div>
+  <h2 class="section-title">Your gifts are waiting 🎁</h2>
+  <p class="section-lead">Each little box holds a piece of my heart. Open them one by one, sweetheart.</p>
+  <div class="gifts">
+   <button class="gift" data-gift="letter"><span class="gift-icon">💌</span><h3>A letter for you</h3><p>Words my heart has been holding</p></button>
+   <button class="gift" data-gift="roses"><span class="gift-icon">💐</span><h3>Forever roses</h3><p>A bouquet that never fades</p></button>
+   <button class="gift" data-gift="messages"><span class="gift-icon">💗</span><h3>Little reminders</h3><p>Things I hope you never forget</p></button>
+   <button class="gift" data-gift="ring"><span class="gift-icon">💍</span><h3>A promise</h3><p>A tiny symbol of something endless</p></button>
+   <button class="gift" data-gift="stars"><span class="gift-icon">🌌</span><h3>Your own universe</h3><p>A sky full of wishes for you</p></button>
+   <button class="gift" data-gift="treasure"><span class="gift-icon">🧸</span><h3>My biggest blessing</h3><p>The sweetest truth of all</p></button>
+  </div>
+ </div>
+</section>
+
+<section id="letter">
+ <div class="section-wrap">
+  <div class="section-kicker">From the deepest part of my heart</div>
+  <h2 class="section-title">A letter to my love 💌</h2>
+  <div class="letter-card glass">
+   <div class="letter-top">To my favourite person, with all my love</div>
+   <div id="typedLetter"> </div>
+   <div style="text-align:right;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.5rem">Yours, always ❤️</div>
+  </div>
+ </div>
+</section>
+
+<section id="memories">
+ <div class="section-wrap">
+  <div class="section-kicker">Little moments, endless love</div>
+  <h2 class="section-title">Our little gallery 📸</h2>
+  <p class="section-lead">Replace these pictures with your favourite photos together. Every memory deserves a pretty frame.</p>
+  <div class="gallery">
+   <!-- Replace the image URLs below with your own photo filenames or image links. -->
+   <figure class="photo" style="--r:-2deg"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=700&auto=format&fit=crop&q=80" alt="Romantic pink flowers"><figcaption>My favourite kind of beautiful</figcaption></figure>
+   <figure class="photo" style="--r:2deg"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=700&auto=format&fit=crop&q=80" alt="Couple holding hands"><figcaption>Every moment with you</figcaption></figure>
+   <figure class="photo" style="--r:-1deg"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700&auto=format&fit=crop&q=80" alt="Beautiful flower bouquet"><figcaption>You make life bloom</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="section-wrap">
+  <div class="section-kicker">A few more reasons to smile</div>
+  <h2 class="section-title">Just us, and a little magic 💖</h2>
+  <div class="love-tools">
+   <div class="tool-card glass">
+    <span class="big-heart" id="growingHeart" role="button" tabindex="0" aria-label="Grow the heart">❤️</span>
+    <h3>Tap my heart</h3><p>Every tap makes it bigger. But even this isn't big enough for all my love.</p>
+    <button class="btn ghost" id="heartButton">Make it grow 💓</button>
+   </div>
+   <div class="tool-card glass">
+    <span style="font-size:3rem">💞</span>
+    <h3>How much do you love me?</h3>
+    <p id="loveAnswer">I have a feeling the answer is going to be adorable...</p>
+    <button class="btn ghost" id="loveButton">Find out 💗</button>
+   </div>
+   <div class="tool-card glass" style="grid-column:1/-1">
+    <span style="font-size:2.8rem">🌷</span><h3>100 little reasons I love you</h3>
+    <p id="reasonText">Let's start with one: because being loved by you makes ordinary days feel magical.</p>
+    <button class="btn ghost" id="reasonButton">Give me another reason ✨</button>
+   </div>
+  </div>
+  <div class="rose-garden" aria-label="Animated roses"><span>🌹</span><span>🌹</span><span>🌹</span><span>🌹</span><span>🌹</span></div>
+ </div>
+</section>
+
+<section class="final" id="finale">
+ <div class="section-wrap">
+  <div class="section-kicker">And before you go...</div>
+  <h2>I LOVE YOU<br>SO MUCH ❤️</h2>
+  <p>Happy Birthday to the most beautiful girl in my universe. I wish I could give you the entire world, because you deserve nothing less. Thank you for being you, for making my world brighter, and for giving my heart so many reasons to smile. I hope I get to celebrate countless birthdays by your side. I love you endlessly. ❤️</p>
+  <button class="btn" id="finalSurprise">One last surprise 🎆</button>
+  <p id="finalMessage" style="display:none;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#ffe5a6">If I had to choose all over again, in every lifetime, I would still choose you. ❤️</p>
+ </div>
+</section>
+<footer>MADE WITH ALL THE LOVE IN MY HEART · JUST FOR YOU ♡</footer>
+
+<div class="modal" id="giftModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="modal-box glass">
+  <button class="close" id="closeModal" aria-label="Close">×</button>
+  <div id="modalIcon" style="font-size:3.5rem">💗</div>
+  <h2 id="modalTitle">A gift for you</h2>
+  <p id="modalText"></p>
+  <button class="btn ghost" id="modalOkay">Keep this close ❤️</button>
+ </div>
+</div>
+
+<script>
+// PERSONALIZE HERE: change her name, nickname, and the letter below.
+const HER_NAME = "My Love";
+const loveLetter = `My sweetest ${HER_NAME},\n\nHappy Birthday, beautiful. I wish I could pause this moment and remind you a thousand times how special you are to me. You bring a kind of happiness into my life that I never knew I needed. Even the simplest moments feel extraordinary when they have you in them.\n\nI love your smile, your heart, your little ways, and all the things that make you uniquely you. I hope you always see yourself through my eyes: precious, wonderful, and worthy of every beautiful thing this world has to offer.\n\nI want to celebrate countless birthdays with you, make more memories, laugh over silly things, and keep choosing you through every season of life. No gift could ever measure what you mean to me. You are my favourite person and one of the biggest blessings in my life.\n\nI hope this year brings you peace, laughter, dreams coming true, and a thousand reasons to smile. Whatever the day brings, please never forget that you are loved more than words can explain.\n\nHappy Birthday, my love. Today, tomorrow, and always. ❤️`;
+document.querySelector('#intro h1').innerHTML = `Someone special<br>has a birthday today...`;
+let openedGifts = new Set();
+const modal = document.getElementById('giftModal');
+const gifts = {
+ letter:['💌','A letter from my heart','There are a million things I want to tell you, but the biggest one is simple: I love you. Go to the letter section for all the words I wrote just for you.'],
+ roses:['🌹','A thousand roses','If every thought of you turned into a rose, I could fill the whole world with flowers and still run out. These roses are a tiny symbol of how endlessly you make my heart bloom.'],
+ messages:['💗','Little things to remember','You are enough. You are cherished. Your smile matters. Your dreams matter. You deserve kindness, gentleness, and a love that makes you feel safe. And on every ordinary day, you are still my favourite hello.'],
+ ring:['💍','A little promise','This is not about a perfect fairytale. It is about choosing each other, being patient, growing together, and finding new reasons to love each other every day. My heart is cheering for every tomorrow with you.'],
+ stars:['🌌','Your own universe','If I could gather every star, I would arrange them into one giant message: YOU ARE SO LOVED. May every wish you make find its way to you. ✨'],
+ treasure:['🧸','My biggest blessing','The best part of my life is not a thing I can wrap in a box. It is you. Thank you for existing, for being yourself, and for making my world feel like a warmer place. ❤️']
+};
+function showModal(icon,title,text){document.getElementById('modalIcon').textContent=icon;document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent=text;modal.classList.add('show')}
+function closeModal(){modal.classList.remove('show')}
+document.querySelectorAll('.gift').forEach(btn=>btn.addEventListener('click',()=>{
+ const g=gifts[btn.dataset.gift];openedGifts.add(btn.dataset.gift);showModal(...g);btn.style.borderColor='#e8bd83';btn.querySelector('.gift-icon').textContent='✨';
+ if(openedGifts.size===6){document.getElementById('finalMessage').style.display='block';}
+}));
+document.getElementById('closeModal').onclick=closeModal;document.getElementById('modalOkay').onclick=closeModal;
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.getElementById('openSurprise').addEventListener('click',()=>{
+ document.getElementById('intro').classList.add('hide');document.body.classList.remove('locked');startMagic();typeLetter();
+});
+let typed=false;
+function typeLetter(){if(typed)return;typed=true;const el=document.getElementById('typedLetter');el.textContent='';let i=0;const timer=setInterval(()=>{el.textContent+=loveLetter[i++]||'';if(i>=loveLetter.length)clearInterval(timer)},22)}
+const candles=[...document.querySelectorAll('.candle')];let candlesOut=false;
+document.getElementById('blowCandles').onclick=()=>{
+ candlesOut=!candlesOut;candles.forEach(c=>c.classList.toggle('out',candlesOut));
+ document.getElementById('cakeMessage').textContent=candlesOut?'Wish sent to the universe. May it come true, my love. ✨':'The candles are glowing again. Make another wish!';
+ document.getElementById('blowCandles').textContent=candlesOut?'Light them again 🕯️':'Blow out the candles 🕯️';
+ if(candlesOut)fireworks(45);
+};
+let heartSize=1;
+function growHeart(){heartSize=Math.min(heartSize+.12,2.6);document.getElementById('growingHeart').style.transform=`scale(${heartSize})`;if(heartSize>=2.6){heartSize=1;setTimeout(()=>document.getElementById('growingHeart').style.transform='scale(1)',500)}}
+document.getElementById('heartButton').onclick=growHeart;document.getElementById('growingHeart').onclick=growHeart;document.getElementById('growingHeart').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();growHeart()}};
+const answers=['More than all the stars, and then some. ✨','A whole universe full. No calculator could measure it. 💗','Enough to make you smile every single day. 🥹','Infinite. And somehow growing. ❤️'];
+document.getElementById('loveButton').onclick=()=>{document.getElementById('loveAnswer').textContent=answers[Math.floor(Math.random()*answers.length)];hearts(8)};
+const reasons=['Your smile can turn my whole day around.','You make ordinary moments feel special.','Your heart is beautiful.','You are wonderfully, unapologetically you.','Your laugh is one of my favourite sounds.','You inspire me to be better.','You make the world feel softer.','I love the little details that make you who you are.','You deserve every good thing coming your way.','Because there is nobody else quite like you.','You make me grateful for the smallest moments.','You are my favourite person to think about.','Your happiness matters so much to me.','You make love feel like home.','Simply because you are you.'];
+let reasonIndex=0;
+document.getElementById('reasonButton').onclick=()=>{document.getElementById('reasonText').textContent=reasons[reasonIndex%reasons.length];reasonIndex++;hearts(5)};
+document.getElementById('finalSurprise').onclick=()=>{document.getElementById('finalMessage').style.display='block';fireworks(100);hearts(35);document.getElementById('finalSurprise').textContent='Forever yours ❤️'};
+function particle(symbol,x){const el=document.createElement('span');el.className='particle';el.textContent=symbol;el.style.left=(x??Math.random()*100)+'vw';el.style.fontSize=(14+Math.random()*24)+'px';el.style.animationDuration=(5+Math.random()*7)+'s';document.getElementById('effects').appendChild(el);setTimeout(()=>el.remove(),13000)}
+function hearts(n=12){for(let i=0;i<n;i++)setTimeout(()=>particle(['💗','💕','💖','♥','✨'][Math.floor(Math.random()*5)]),i*90)}
+function startMagic(){hearts(30);for(let i=0;i<35;i++){const s=document.createElement('i');s.className='spark';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';document.getElementById('effects').appendChild(s)}setInterval(()=>particle(['♥','✦','🌸','✨'][Math.floor(Math.random()*4)]),650)}
+function fireworks(n=50){for(let i=0;i<n;i++){setTimeout(()=>{const cx=10+Math.random()*80,cy=12+Math.random()*65;for(let j=0;j<10;j++){const f=document.createElement('i');f.className='firework';f.style.left=cx+'vw';f.style.top=cy+'vh';f.style.setProperty('--x',Math.cos(j*Math.PI/5)*(35+Math.random()*85)+'px');f.style.setProperty('--y',Math.sin(j*Math.PI/5)*(35+Math.random()*85)+'px');f.style.background=['#ffd58a','#ff8eae','#fff0f4','#caa7ff'][Math.floor(Math.random()*4)];document.getElementById('effects').appendChild(f);setTimeout(()=>f.remove(),1100)}},i*30)}}
+</script>
+</body>
+</html>
